@@ -1,21 +1,8 @@
-const full_html = "Hi, I am Rohan Hussain,^";
+const full_html = `Hi, I am ${name},^`;
 
 let cur_display_length = 0;
 let increasing_interval = -1;
 const typing_speed = 50;
-
-const titles = [
-  "Software Engineer",
-  "Teacher",
-  "Vector Illustration Artist",
-  "Graphics Designer",
-];
-const title_icons = [
-  "fas fa-code",
-  "fas fa-chalkboard-teacher",
-  "fas fa-seedling",
-  "fas fa-paint-brush",
-];
 
 let grow_title_interval = -1,
   shrink_title_interval = -1;

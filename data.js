@@ -1,3 +1,21 @@
+const name = "Rohan Hussain"
+
+// these appear on the top one after the other as if being typed
+const titles = [
+    "Software Engineer",
+    "Teacher",
+    "Vector Illustration Artist",
+    "Graphics Designer",
+]
+
+// each icon corresopnds to a title
+const title_icons = [
+    "fas fa-code",
+    "fas fa-chalkboard-teacher",
+    "fas fa-seedling",
+    "fas fa-paint-brush",
+];
+
 const data = {
     story: [
         "It started in <b>8th Grade</b> when I made a facemash website (inspired by Mark Zuckerberg's Harvard project) for my school. By high school, I had started building industry-grade software solutions. For example, I built a <b>Clinic Management System</b> which ran in Murad Clinic, Lahore.",
@@ -152,4 +170,4 @@ const links = [
     }
 ]
 
-module.exports = { data, featuredWorks, experiences, posts, links }
+module.exports = { name, data, featuredWorks, experiences, posts, links, titles, title_icons }

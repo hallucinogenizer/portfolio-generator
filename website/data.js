@@ -1,0 +1,1 @@
+const name = "Rohan Hussain"; const titles = ["Software Engineer","Teacher","Vector Illustration Artist","Graphics Designer"]; const title_icons = ["fas fa-code","fas fa-chalkboard-teacher","fas fa-seedling","fas fa-paint-brush"];
