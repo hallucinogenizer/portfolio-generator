@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohan Hussain's Portfolio</title>
+    <meta name="description"
+        content="Rohan Hussain is an Ex-Airlift Software Engineer who graduated from LUMS in 2022 and worked as Team Lead at Open Data Pakistan as well as at the Institute of Emerging Careers (IEC).">
+    <meta name=”robots” content="index, follow">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KXM4TWCZT9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-KXM4TWCZT9');
+    </script>
+
+    <link rel="stylesheet" href="style.css?v3">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/be465d58ac.js" crossorigin="anonymous"></script>
+
+    <script src="code.js" async defer></script>
+</head>
+
+<body>
+    <div id="navbar-div">
+        <a class="navbar-link" href="/blog">Blog</a>
+        <a class="navbar-link" href="contact.html">Contact</a>
+    </div>
+
+    <div id="backdrop">
+
+        <div id="backdrop-left-column">
+            <h1 id="intro-heading">
+                <%= data.introHeading %>
+            </h1>
+            <h2>My Story</h2>
+            <% data.story.forEach(function(paragraph) { %>
+                <p>
+                    <%- paragraph %>
+                </p>
+                <% }); %>
+                    <a href="<%= data.resumeLink %>" download><button id="backdrop-left-button"><i
+                                class="far fa-arrow-alt-circle-down"></i> Download Resume</button></a>
+        </div>
+
+        <div id="backdrop-right-column">
+            <div id="dp-container">
+                <img src="<%= data.imagePath %>" class="dp">
+                <div id="profession-icon"><i id="prof-icon" class="<%= data.professionIconClass %>"></i></div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="featured-works">
+        <h4 class="my-h4"><i class="fas fa-laptop-code"></i> Recent Projects</h4>
+
+        <% featuredWorks.forEach(function(work) { %>
+            <div class="horizontal-card">
+                <img src="<%= work.imagePath %>" width="250px" height="190px">
+
+                <div>
+                    <a href="<%= work.projectLink %>" target="_blank">
+                        <h2 class="my-h2">
+                            <%= work.projectName %> <i class="fas fa-external-link-square-alt"></i>
+                        </h2>
+                    </a>
+                    <span class="pill">
+                        <%= work.date %>
+                    </span>
+                    <span class="secondary-text"><b>
+                            <%= work.role %>
+                        </b> | <%= work.technologies %></span>
+                    <p><a href="<%= work.projectLink %>" target="_blank">
+                            <%= work.projectLinkDescription %> <i class="fas fa-external-link-square-alt"></i>
+                        </a></p>
+
+                    <details>
+                        <% work.projectDescriptionParagraphs.forEach(function(paragraph) { %>
+                            <p><%-paragraph %></p>
+                            <% }) %>
+                                <!-- Add more details as needed -->
+                    </details>
+                </div>
+            </div>
+            <hr>
+            <% }); %>
+    </section>
+    <!-- <hr style="background-color:#EDF7FA;padding:0;margin:0;color:#d9d9d936;"> -->
+    <section id="experience-section">
+        <div id="experience-header">
+            <h4 class="my-h4"><i class="fas fa-user-tie"></i> Work Experience</h4>
+        </div>
+        <% for (const experience of experiences) { %>
+            <div class="experience-item">
+                <img src="<%= experience.imageSrc %>" alt="<%= experience.companyName %> Logo" width="75px"
+                    height="auto">
+                <div class="experience-item-details">
+                    <h2>
+                        <%= experience.jobTitle %>
+                    </h2>
+                    <h3 style="font-weight: 300;">
+                        <%= experience.companyName %>
+                            <% if (experience.companyLink) { %>
+                                <a href="<%= experience.companyLink %>" class="experience-item-company-link"
+                                    target="_blank">
+                                    <i class="fas fa-external-link-square-alt"></i>
+                                </a>
+                                <% } %>
+                    </h3>
+                    <p class="experience-item-tenure">
+                        <%= experience.startDate %> - <%= experience.endDate %>
+                    </p>
+                    <p class="experience-item-description">
+                        <%= experience.description %>
+                    </p>
+                </div>
+            </div>
+            <% } %>
+    </section>
+
+    <section id="recent-blog-posts-section">
+        <div id="recent-posts-header">
+            <h4 class="my-h4"><i class="fab fa-youtube"></i> Recorded Courses</h4>
+            <!-- <a href="blog.html">View All</a> -->
+        </div>
+        <div id="card-container">
+            <% for (const post of posts) { %>
+                <div class="card">
+                    <a href="<%= post.link %>" target="_blank">
+                        <h2 class="my-h2">
+                            <%= post.title %> <i class="fas fa-external-link-square-alt"></i>
+                        </h2>
+                    </a>
+                    <span>
+                        <%= post.date %>
+                    </span>
+                    <span> | </span>
+                    <span>
+                        <%= post.topics %>
+                    </span>
+                    <p>
+                        <%= post.description %>
+                    </p>
+                </div>
+                <% } %>
+        </div>
+    </section>
+
+
+    <section id="social-media-links-section">
+        <div id="icons-div">
+            <% for (const link of links) { %>
+                <a href="<%= link.url %>" target="_blank"><i class="<%= link.iconClass %>"></i></a>
+                <% } %>
+        </div>
+        <p style="text-align:center;font-weight:400;font-size:14px;color:#21243D;">
+            <%= data.copyright %>
+        </p>
+    </section>
+
+
+</body>
+
+</html>
