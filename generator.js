@@ -1,9 +1,9 @@
-const { name, experiences, data, featuredWorks, posts, links, titles, title_icons } = require("./data")
+const { name, metaDescription, siteTitle, experiences, data, featuredWorks, posts, links, titles, title_icons } = require("./data")
 
 const ejs = require("ejs")
 const fs = require("fs")
 const writeToDataFile = require("./datawriter")
-ejs.renderFile('template.ejs', { titles, experiences, data, featuredWorks, posts, links }, (err, html) => {
+ejs.renderFile('template.ejs', { titles, metaDescription, siteTitle, experiences, data, featuredWorks, posts, links }, (err, html) => {
     if (err) {
         console.error(err);
         return;

@@ -16,6 +16,12 @@ const title_icons = [
     "fas fa-paint-brush",
 ];
 
+// this goes in <head> in <meta> tags for SEO
+const metaDescription = "Rohan Hussain is an Ex-Airlift Software Engineer who graduated from LUMS in 2022 and worked as Team Lead at Open Data Pakistan as well as at the Institute of Emerging Careers (IEC)."
+
+// goes in head <title> tags
+const siteTitle = "Rohan Hussain's Portfolio"
+
 const data = {
     story: [
         "It started in <b>8th Grade</b> when I made a facemash website (inspired by Mark Zuckerberg's Harvard project) for my school. By high school, I had started building industry-grade software solutions. For example, I built a <b>Clinic Management System</b> which ran in Murad Clinic, Lahore.",
@@ -170,4 +176,4 @@ const links = [
     }
 ]
 
-module.exports = { name, data, featuredWorks, experiences, posts, links, titles, title_icons }
+module.exports = { name, metaDescription, siteTitle, data, featuredWorks, experiences, posts, links, titles, title_icons }
