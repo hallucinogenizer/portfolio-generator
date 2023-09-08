@@ -1,6 +1,6 @@
-import Image from 'next/image'
+import MainForm from '@/features/MainForm/MainForm'
 
 export default function Home() {
   return (
-    <main>Hello World</main>  )
+    <main><MainForm /></main>  )
 }
