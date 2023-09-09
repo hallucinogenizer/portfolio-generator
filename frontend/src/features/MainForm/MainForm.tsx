@@ -38,6 +38,7 @@ const schema = yup.object({
       return items.every((item) => item !== '');
     }
   ),
+  icons: yup.string().required(),
 }).required();
 
 
@@ -58,6 +59,7 @@ export default function MainForm() {
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormInput name="name" label="Full Name: " />
         <FormInput name="titles" label="Professional Titles: " />
+        <FormInput name="icons" label="FontAwesome Icons for Professional Titles: " />
         <Button type="submit">Submit</Button>
       </form>
     </Form>

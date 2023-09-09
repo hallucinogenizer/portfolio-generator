@@ -10,15 +10,17 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/Input/Input";
+import TooltipWrapper from "@/components/TooltipWrapper/TooltipWrapper";
 
 type Props = {
   name: string;
   label: string;
   placeholder?: string;
   type?: Exclude<HTMLInputTypeAttribute, "select">;
+  tooltipContent?: string;
 };
 
-function FormInput({ name, label, placeholder = "Enter here", type }: Props) {
+function FormInput({ name, label, placeholder = "Enter here", type, tooltipContent }: Props) {
   const form = useFormContext();
 
   return (
@@ -27,7 +29,7 @@ function FormInput({ name, label, placeholder = "Enter here", type }: Props) {
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label}</FormLabel>
+          <FormLabel>{label} {tooltipContent && <TooltipWrapper content={tooltipContent} />}</FormLabel>
           <FormControl>
             <Input type={type} placeholder={placeholder} errors={form.formState.errors} {...field} />
           </FormControl>
