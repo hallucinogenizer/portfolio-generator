@@ -12,14 +12,17 @@ import FormInput from "@/components/FormInput/FormInput";
 
 
 const schema = yup.object({
-  firstName: yup.string().required(),
-  age: yup.number().positive().integer().required(),
+  name: yup.string().required().min(3).max(40)
 }).required();
 
 
 export default function MainForm() {
   const form = useForm<FormData>({
-    resolver: yupResolver(schema)
+    mode: "onChange",
+    resolver: yupResolver(schema),
+    defaultValues: {
+      name: ""
+    }
   });
   type FormData = yup.InferType<typeof schema>;
 
@@ -28,7 +31,7 @@ export default function MainForm() {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormInput name="firstName" label="First Name: " />
+        <FormInput name="name" label="Full Name: " />
         <Button type="submit">Submit</Button>
       </form>
     </Form>

@@ -9,7 +9,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
+import { Input } from "@/components/Input/Input";
 
 type Props = {
   name: string;
@@ -29,7 +29,7 @@ function FormInput({ name, label, placeholder = "Enter here", type }: Props) {
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input type={type} placeholder={placeholder} {...field} />
+            <Input type={type} placeholder={placeholder} errors={form.formState.errors} {...field} />
           </FormControl>
           <FormMessage />
         </FormItem>
