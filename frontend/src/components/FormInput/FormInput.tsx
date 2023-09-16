@@ -4,6 +4,7 @@ import { useFormContext } from "react-hook-form";
 
 import {
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -17,10 +18,18 @@ type Props = {
   label: string;
   placeholder?: string;
   type?: Exclude<HTMLInputTypeAttribute, "select">;
+  description?: string;
   tooltipContent?: string;
 };
 
-function FormInput({ name, label, placeholder = "Enter here", type, tooltipContent }: Props) {
+function FormInput({
+  name,
+  label,
+  placeholder = "Enter here",
+  type,
+  description,
+  tooltipContent,
+}: Props) {
   const form = useFormContext();
 
   return (
@@ -29,10 +38,19 @@ function FormInput({ name, label, placeholder = "Enter here", type, tooltipConte
       name={name}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>{label} {tooltipContent && <TooltipWrapper content={tooltipContent} />}</FormLabel>
+          <FormLabel>
+            {label}{" "}
+            {tooltipContent && <TooltipWrapper content={tooltipContent} />}
+          </FormLabel>
           <FormControl>
-            <Input type={type} placeholder={placeholder} errors={form.formState.errors} {...field} />
+            <Input
+              type={type}
+              placeholder={placeholder}
+              errors={form.formState.errors}
+              {...field}
+            />
           </FormControl>
+          {description && <FormDescription>{description}</FormDescription>}
           <FormMessage />
         </FormItem>
       )}
